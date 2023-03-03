@@ -15,8 +15,8 @@ public class CardPatternsTask2test {
     }
 
     @Test
-    void shouldRegisteredActiveUser(){
-        var registeredUser = DataGenerator.Registration.getRegisteredUser ("active");
+    void shouldRegisteredActiveUser() {
+        var registeredUser = DataGenerator.Registration.getRegisteredUser("active");
         $("span[data-test-id=login] input").setValue(registeredUser.getLogin());
         $("span[data-test-id=password] input").setValue(registeredUser.getPassword());
         $("div [data-test-id=action-login]").click();
@@ -25,8 +25,8 @@ public class CardPatternsTask2test {
     }
 
     @Test
-    void shouldRegisteredBlockedUser(){
-        var blockRegisteredUser = DataGenerator.Registration.getRegisteredUser ("blocked");
+    void shouldRegisteredBlockedUser() {
+        var blockRegisteredUser = DataGenerator.Registration.getRegisteredUser("blocked");
         $("span[data-test-id=login] input").setValue(blockRegisteredUser.getLogin());
         $("span[data-test-id=password] input").setValue(blockRegisteredUser.getPassword());
         $("div [data-test-id=action-login]").click();
@@ -35,8 +35,8 @@ public class CardPatternsTask2test {
     }
 
     @Test
-    void shouldNotRegisteredActiveUser(){
-        var notRegisteredUser = DataGenerator.Registration.getUser ("active");
+    void shouldNotRegisteredActiveUser() {
+        var notRegisteredUser = DataGenerator.Registration.getUser("active");
         $("span[data-test-id=login] input").setValue(notRegisteredUser.getLogin());
         $("span[data-test-id=password] input").setValue(notRegisteredUser.getPassword());
         $("div [data-test-id=action-login]").click();
@@ -45,8 +45,8 @@ public class CardPatternsTask2test {
     }
 
     @Test
-    void shouldRegisteredActiveUserInvalidLogin(){
-        var registeredUser = DataGenerator.Registration.getRegisteredUser ("active");
+    void shouldRegisteredActiveUserInvalidLogin() {
+        var registeredUser = DataGenerator.Registration.getRegisteredUser("active");
         var wrongLogin = DataGenerator.getRandomLogin();
         $("span[data-test-id=login] input").setValue(wrongLogin);
         $("span[data-test-id=password] input").setValue(registeredUser.getPassword());
@@ -56,8 +56,8 @@ public class CardPatternsTask2test {
     }
 
     @Test
-    void shouldRegisteredActiveUserInvalidPassword(){
-        var registeredUser = DataGenerator.Registration.getRegisteredUser ("active");
+    void shouldRegisteredActiveUserInvalidPassword() {
+        var registeredUser = DataGenerator.Registration.getRegisteredUser("active");
         var wrongPassword = DataGenerator.getRandomPassword();
         $("span[data-test-id=login] input").setValue(registeredUser.getLogin());
         $("span[data-test-id=password] input").setValue(wrongPassword);
@@ -65,7 +65,4 @@ public class CardPatternsTask2test {
         $("[data-test-id=error-notification]").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль")).shouldBe(Condition.visible);
 
     }
-
-
-
 }
